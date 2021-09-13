@@ -1,19 +1,30 @@
 pipeline {
-  agent none
-  stages {
-    stage("foo") {
-      steps {
-        /*
-         * Any Pipeline steps and wrappers can be used within the "steps" section
-         * of a Pipeline and they can be nested.
-         * Refer to the Pipeline Syntax Snippet Generator for the correct syntax of any step or wrapper
-         */
-        timeout(time: 5, unit: "SECONDS") {
-          retry(5) {
-            echo "hello"
-          }
+    agent any
+    stages {
+        stage('One') {
+                steps {
+                        echo 'Hi, this is Zulaikha from edureka'
+			
+                }
         }
-      }
+	    stage('Two'){
+		    
+		steps {
+			input('Do you want to proceed?')
+        }
+	    }
+        stage('Three') {
+                when {
+                        not {
+                                branch "master"
+                        }
+                }
+                steps {
+			echo "Hello"
+                        }
+        }
+        stage('Four') {
+                echo "Hello IBM"
+        }
     }
-  }
 }
