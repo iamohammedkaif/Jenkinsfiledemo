@@ -24,18 +24,10 @@ pipeline {
                         }
         }
         stage('Four') {
-                parallel {
-                        stage('Unit Test') {
-                                steps{
-                                        echo "Hello IBMers..."
-                                }
-                        }
-			}
-				steps {
-					echo 'Running the integration test..'
-				}
-                               
-			}  }
+                steps {
+                        echo 'Hi, this is IBM'
+			
+                }
         }
     }
 }
